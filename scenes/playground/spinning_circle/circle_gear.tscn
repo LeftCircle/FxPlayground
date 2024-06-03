@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://wfjjqfrmfiwx"]
+
+[ext_resource type="Script" path="res://scenes/playground/spinning_circle/circle_gear.gd" id="1_dcaef"]
+[ext_resource type="PackedScene" uid="uid://dlepiqomeuchs" path="res://scenes/playground/spinning_circle/spinning_circle.tscn" id="2_xmndx"]
+[ext_resource type="PackedScene" uid="uid://c8gtij77qmos0" path="res://scenes/playground/spinning_circle/connecting_line.tscn" id="3_x74es"]
+
+[node name="CircleGear" type="Node2D"]
+script = ExtResource("1_dcaef")
+spinning_circle_scene = ExtResource("2_xmndx")
+connector = ExtResource("3_x74es")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8gtij77qmos0"]
+
+[ext_resource type="Script" path="res://scenes/playground/spinning_circle/connecting_line.gd" id="1_754b7"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="2_1ampj"]
+
+[node name="ConnectingLine" type="Line2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("1_754b7")
+
+[node name="Ellipse" type="Node2D" parent="."]
+script = ExtResource("2_1ampj")
+size = Vector2(10, 10)
+circle = true
+fill_color = Color(0, 0, 0, 1)
