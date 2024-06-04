@@ -1,5 +1,10 @@
 shader_type canvas_item;
 
+uniform vec3 color_1 : source_color= vec3(255,0,0);
+uniform vec3 color_2 : source_color= vec3(0,255,0);
+uniform vec3 color_3 : source_color= vec3(0,0,255);
+uniform float spin_speed : hint_range(0.0, 1.0, 0.011) = 0.25;
+
 vec2 random2(vec2 st){
     st = vec2( dot(st,vec2(127.1,311.7)),
               dot(st,vec2(269.5,183.3)) );
@@ -32,11 +37,11 @@ float shape(vec2 st, float radius, float t_offset, float freq_mod, float speed) 
     //float a = asinh(st.y);
 	float m = abs(mod(a + t_offset + TIME * speed, 3.14*freq_mod)-3.14)/3.6;
     float f = radius;
-    m += noise(st+TIME*0.1)*.5;
+    m += noise(st+TIME*1.0)*0.1;
     //a *= 1.+abs(atan(TIME*0.2))*.1;
     //a *= 1.+noise(st+TIME*0.1)*0.1;
     //f += sin(a*50.)*noise(st+TIME*.2)*.1;
-    f += 0.35*(sin(a * 5.0)*.1*pow(m,1.));
+    f += 0.35*(sin(a * 5.0)* 0.15 *pow(m,1));
     return 1.-smoothstep(f,f+0.007,r);
 }
 
@@ -50,8 +55,20 @@ void vertex() {
 
 void fragment() {
 	// fmod of 0.5 creates 4 rotations which is pretty cool.
-	vec3 color = vec3(1.0) * shapeBorder(UV, 0.8, 0.12, 0.0, 2.0, 3.0);
-	vec2 rotated = rotate2d(TIME) * (vec2(0.5) - UV) + vec2(0.5);
-	vec3 color_2 = vec3(1.0) * shapeBorder(rotated, 0.45, 0.12, 3.14, 2.0, 1.0);
-	COLOR = vec4(1.0 - color - color_2, 1.0);
+
+	// translate the UV coordinates so that all coordinates move in a noisy circle pattern
+	vec2 tr1 = 0.1 * vec2(noise(vec2(1.0) * TIME * 0.1), noise(vec2(1.0) * TIME * 0.1));
+	tr1 = rotate2d(TIME * 0.1) * tr1;
+	vec2 uv_1 = UV + tr1;
+	vec2 uv_2 = UV + rotate2d(TIME * 0.2 + 4.0 * PI / 3.0) * tr1;
+	vec2 uv_3 = UV + rotate2d(TIME * 0.3 + 2.0 * PI / 3.0) * tr1;
+
+	vec2 r0 = rotate2d(-TIME * spin_speed) * (vec2(0.5) - uv_1) + vec2(0.5);
+	vec2 r1 = rotate2d(TIME * spin_speed * 1.25) * (vec2(0.5) - uv_2) + vec2(0.5);
+	vec2 r2 = rotate2d(TIME * spin_speed * 1.5) * (vec2(0.5) - uv_3) + vec2(0.5);
+	vec4 ac1 = vec4(color_1, 0.333) * shapeBorder(r0, 0.8, 0.12, 0.0, 2.0, 0.25);
+	vec4 ac2 = vec4(color_2, 0.333) * shapeBorder(r1, 0.8, 0.12, 4.0 * PI / 3.0, 2.0, 0.5);
+	vec4 ac3 = vec4(color_3, 0.333) * shapeBorder(r2, 0.8, 0.12, 2.0 * PI / 3.0, 2.0, spin_speed * 0.75);
+	COLOR = ac1 + ac2 + ac3;
+	COLOR.a = clamp(COLOR.a, 0, 0.8);
 }

@@ -28,3 +28,7 @@ folder_colors={
 "res://singletons/": "purple",
 "res://tests/": "red"
 }
+
+[rendering]
+
+viewport/hdr_2d=true

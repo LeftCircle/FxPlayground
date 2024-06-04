@@ -1,13 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm2y4l68pmrnd"]
+[gd_scene load_steps=5 format=3 uid="uid://dm2y4l68pmrnd"]
 
 [ext_resource type="Shader" path="res://resources/shaders/noise_circle.gdshader" id="1_55s3j"]
 [ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="2_pjwce"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtgbp"]
 shader = ExtResource("1_55s3j")
+shader_parameter/color_1 = Color(255, 0, 0, 1)
+shader_parameter/color_2 = Color(0, 255, 0, 1)
+shader_parameter/color_3 = Color(0, 0, 255, 1)
+shader_parameter/spin_speed = 0.363
+
+[sub_resource type="Environment" id="Environment_iwu6f"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_strength = 0.26
+glow_blend_mode = 4
 
 [node name="main" type="Node"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.483
+anchor_top = 0.469
+anchor_right = 0.483
+anchor_bottom = 0.469
+offset_left = -0.416016
+offset_top = 0.0879822
+offset_right = 39.584
+offset_bottom = 40.088
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
 material = SubResource("ShaderMaterial_vtgbp")
+scale = Vector2(4, 4)
 texture = ExtResource("2_pjwce")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iwu6f")
