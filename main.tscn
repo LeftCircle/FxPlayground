@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm2y4l68pmrnd"]
+[gd_scene load_steps=7 format=3 uid="uid://dm2y4l68pmrnd"]
 
 [ext_resource type="Shader" path="res://resources/shaders/noise_circle.gdshader" id="1_55s3j"]
 [ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="2_pjwce"]
+[ext_resource type="Shader" path="res://resources/shaders/circle_variations/just_noise_circles.gdshader" id="3_wrdx3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtgbp"]
 shader = ExtResource("1_55s3j")
@@ -10,12 +11,23 @@ shader_parameter/color_2 = Color(0, 255, 0, 1)
 shader_parameter/color_3 = Color(0, 0, 255, 1)
 shader_parameter/spin_speed = 0.363
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yit1h"]
+shader = ExtResource("3_wrdx3")
+shader_parameter/color_1 = Color(255, 0, 0, 1)
+shader_parameter/color_2 = Color(0, 255, 0, 1)
+shader_parameter/color_3 = Color(0, 0, 255, 1)
+shader_parameter/spin_speed = 0.25
+
 [sub_resource type="Environment" id="Environment_iwu6f"]
 background_mode = 3
 glow_enabled = true
 glow_normalized = true
-glow_strength = 0.26
+glow_intensity = 4.59
+glow_strength = 0.37
+glow_mix = 0.065
+glow_bloom = 0.66
 glow_blend_mode = 4
+glow_map_strength = 0.67
 
 [node name="main" type="Node"]
 
@@ -41,7 +53,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
 material = SubResource("ShaderMaterial_vtgbp")
+scale = Vector2(4, 4)
+texture = ExtResource("2_pjwce")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+material = SubResource("ShaderMaterial_yit1h")
 scale = Vector2(4, 4)
 texture = ExtResource("2_pjwce")
 
