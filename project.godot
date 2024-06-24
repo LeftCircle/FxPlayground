@@ -29,6 +29,10 @@ folder_colors={
 "res://tests/": "red"
 }
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [rendering]
 
 viewport/hdr_2d=true

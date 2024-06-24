@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbm3pi1oftann"]
+
+[ext_resource type="PackedScene" uid="uid://coayj4qf0uetl" path="res://assets/3D/table_medium.gltf" id="1_ewrh4"]
+[ext_resource type="PackedScene" uid="uid://ds42racid2dsr" path="res://assets/3D/Monitor.glb" id="2_yoj4r"]
+[ext_resource type="PackedScene" uid="uid://bu8ufr5epjb08" path="res://scenes/3D/monitor.tscn" id="3_xaise"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_apftf"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_8ig00"]
+
+[node name="MatrixRoom" type="Node3D"]
+
+[node name="table_medium2" parent="." instance=ExtResource("1_ewrh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043771, 0, -0.258683)
+
+[node name="Monitor" parent="." instance=ExtResource("2_yoj4r")]
+transform = Transform3D(0.234603, 0, 0, 0, 0.234603, 0, 0, 0, 0.234603, -0.54979, 1.28308, -0.924829)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.86808, 0, 0, 0, 1, 0, 0, 0, 6.44821, 0, -0.469453, 0)
+mesh = SubResource("BoxMesh_apftf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.736699, 0.282152, -0.614544, 0, 0.908792, 0.417249, 0.676221, -0.307387, 0.669507, -6.12314, 5.29765, 6.06663)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.907073, 0.237101, -0.347852, 0, 0.826305, 0.563223, 0.420973, -0.510885, 0.749519, 0, 4.40079, 5.85639)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(17.2241, 0, 0, 0, 6.65969, 0, 0, 0, 2.1581, 0.116791, 2.90181, -3.15727)
+mesh = SubResource("QuadMesh_8ig00")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-7.5289e-07, 0, -2.1581, 0, 6.65969, 0, 17.2241, 0, -9.43336e-08, 2.9687, 2.90181, -2.3638)
+mesh = SubResource("QuadMesh_8ig00")
+
+[node name="Monitor2" parent="." instance=ExtResource("3_xaise")]
+transform = Transform3D(0.0375526, 0, -0.237044, 0, 0.24, 0, 0.237044, 0, 0.0375526, 0.639882, 1.28081, -0.00256526)
+
+[node name="SubViewport" type="SubViewport" parent="Monitor2"]

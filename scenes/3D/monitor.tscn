@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8ufr5epjb08"]
+
+[ext_resource type="PackedScene" uid="uid://ds42racid2dsr" path="res://assets/3D/Monitor.glb" id="1_epwpf"]
+[ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="3_ce0xh"]
+
+[node name="Monitor" instance=ExtResource("1_epwpf")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05698, 0.0841651)
+texture = ExtResource("3_ce0xh")
