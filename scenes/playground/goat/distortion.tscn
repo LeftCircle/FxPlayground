@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckre8umlu2u04"]
+
+[ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="1_iraeh"]
+[ext_resource type="Shader" path="res://resources/shaders/canvas_item/line_distortion.gdshader" id="1_mxu0y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcs0b"]
+shader = ExtResource("1_mxu0y")
+shader_parameter/time = null
+
+[node name="Distortion" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fcs0b")
+texture = ExtResource("1_iraeh")

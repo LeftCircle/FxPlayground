@@ -53,12 +53,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MoreWiggles" type="Sprite2D" parent="Control"]
+visible = false
 material = SubResource("ShaderMaterial_vtgbp")
 scale = Vector2(4, 4)
 texture = ExtResource("2_pjwce")
 
 [node name="JustNoise" type="Sprite2D" parent="Control"]
-visible = false
 material = SubResource("ShaderMaterial_yit1h")
 scale = Vector2(4, 4)
 texture = ExtResource("2_pjwce")

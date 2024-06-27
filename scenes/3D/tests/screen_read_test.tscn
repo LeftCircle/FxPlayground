@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://0giedth7ua1b"]
+
+[ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="1_ts86i"]
+[ext_resource type="Shader" path="res://resources/shaders/spatial/screen_read_test.gdshader" id="2_t1xvx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5qad"]
+render_priority = 0
+shader = ExtResource("2_t1xvx")
+
+[node name="ScreenReadTest" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_ts86i")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.145503, 0.408279)
+material_override = SubResource("ShaderMaterial_t5qad")
+texture = ExtResource("1_ts86i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.83721)
