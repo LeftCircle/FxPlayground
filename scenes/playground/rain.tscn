@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbc34046awoe8"]
 
-[ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="1_rg21o"]
-[ext_resource type="Shader" path="res://resources/shaders/canvas_item/simple_rain.gdshader" id="2_8mr3j"]
+[ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="1_kd8is"]
+[ext_resource type="Shader" path="res://resources/shaders/canvas_item/simple_rain.gdshader" id="2_2iqdj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ecc1"]
-shader = ExtResource("2_8mr3j")
+shader = ExtResource("2_2iqdj")
 shader_parameter/count = 366
 shader_parameter/slant = 0.1
 shader_parameter/speed = 0.12
@@ -12,11 +12,11 @@ shader_parameter/blur = 0.0105
 shader_parameter/colour = Color(1, 1, 1, 1)
 shader_parameter/size = Vector2(0.055, 0.295)
 
-[node name="Goat" type="Node2D"]
+[node name="Rain" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rg21o")
+texture = ExtResource("1_kd8is")
 
 [node name="rain" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_4ecc1")
-texture = ExtResource("1_rg21o")
+texture = ExtResource("1_kd8is")

@@ -1,0 +1,175 @@
+[gd_scene load_steps=13 format=3 uid="uid://bhlqpm0ce7h85"]
+
+[ext_resource type="Script" path="res://scenes/playground/matrix_vibes.gd" id="1_7u1vd"]
+[ext_resource type="Script" path="res://scenes/3D/Components/rotation_3d.gd" id="1_ek2jw"]
+[ext_resource type="Shader" path="res://resources/shaders/canvas_item/analog_monitor.gdshader" id="1_fmdq3"]
+[ext_resource type="PackedScene" uid="uid://cnot7ebdyh5hl" path="res://assets/3D/GOAT_00.glb" id="1_hsmbt"]
+[ext_resource type="Texture2D" uid="uid://tovqaxfmlumc" path="res://assets/2D/godot_tile_pattern.png" id="2_x3cbr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pua48"]
+shader = ExtResource("1_fmdq3")
+shader_parameter/opacity = 1.0
+shader_parameter/pixel_size = 0.0
+shader_parameter/greyscale = false
+shader_parameter/contrast = 2.435
+shader_parameter/pixel_colors = Color(0, 0.8, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 1)
+shader_parameter/tiledtexture = ExtResource("2_x3cbr")
+
+[sub_resource type="Animation" id="Animation_miees"]
+resource_name = "Rotate"
+length = 3.00001
+loop_mode = 2
+step = 0.0166667
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.794125, -0.25, 0, 1.91667, 0.0297461, 0.794125, -1.48333, -0.0391889, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
+}
+
+[sub_resource type="Animation" id="Animation_ebnbw"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.794125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhfsy"]
+_data = {
+"RESET": SubResource("Animation_ebnbw"),
+"Rotate": SubResource("Animation_miees")
+}
+
+[sub_resource type="Animation" id="Animation_vxe44"]
+resource_name = "Pixelation"
+length = 20.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/CanvasLayer/ColorRect:material:shader_parameter/pixel_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.008, -0.25, 0, 0.25, 0, 0.008, -0.25, 0, 0.25, 0, 0.022, 0, -0.00990672, 0.25, 0, 0.022, -0.25, 0, 0, -0.00678425, 0.008, -0.25, 0, 0.25, 0, 0.008, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 6.1, 7, 12.7, 13.6, 19.9)
+}
+
+[sub_resource type="Animation" id="Animation_jl3wi"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/CanvasLayer/ColorRect:material:shader_parameter/pixel_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28rrt"]
+_data = {
+"Pixelation": SubResource("Animation_vxe44"),
+"RESET": SubResource("Animation_jl3wi")
+}
+
+[node name="MatrixVibes" type="Node3D"]
+script = ExtResource("1_7u1vd")
+speed = 0.24
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.700909, 0, -0.71325, 0, 1, 0, 0.71325, 0, 0.700909, 0, 0, 0)
+
+[node name="GOAT_00" parent="Node3D" instance=ExtResource("1_hsmbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0378337, 0, 1.12428)
+
+[node name="Rotation3D" type="Node3D" parent="."]
+script = ExtResource("1_ek2jw")
+rotation_speed = 0.175
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.976586, 0, 0.215127, 0, 1, 0, -0.215127, 0, 0.976586, 1.42387, 0, 5.2318)
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer"]
+material = SubResource("ShaderMaterial_pua48")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.619656, 0.784874, 0, -0.784874, 0.619656, 0, 5.01657, 3.84358)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vhfsy")
+}
+
+[node name="ShaderAdjuster" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_28rrt")
+}
