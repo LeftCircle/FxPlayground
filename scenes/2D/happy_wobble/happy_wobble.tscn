@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2637804ewer5"]
+
+[ext_resource type="Shader" path="res://resources/shaders/canvas_item/happy_wobble.gdshader" id="1_a2x2b"]
+[ext_resource type="Texture2D" uid="uid://cwcqt0fiexpog" path="res://icon.svg" id="2_sjxqc"]
+[ext_resource type="Script" path="res://scenes/2D/happy_wobble/happy_wobble.gd" id="3_fiufb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nj4wq"]
+shader = ExtResource("1_a2x2b")
+shader_parameter/wobble_amount = 37.345
+shader_parameter/jump_height = 50.0
+shader_parameter/wobble_speed = 10.09
+shader_parameter/jump_speed = 4.0
+shader_parameter/squash_stretch_scale = 1.0
+shader_parameter/squash_scale = 1.0
+shader_parameter/stretch_scale = 1.0
+
+[node name="HappyWobble" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nj4wq")
+texture = ExtResource("2_sjxqc")
+offset = Vector2(0, -64)
+script = ExtResource("3_fiufb")

@@ -79,4 +79,3 @@ func draw_handles(overlay: Control) -> Array:
 
 func generate_geometry() -> void:
 	printerr('Function generate_geometry was not implemented')
-

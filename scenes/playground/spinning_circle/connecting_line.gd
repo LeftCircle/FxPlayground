@@ -21,4 +21,3 @@ func _set_points() -> void:
 	set_point_position(0, starting_node.global_position)
 	set_point_position(1, ending_node.global_position)
 	midpoint_circle.global_position = (starting_node.global_position + ending_node.global_position) / 2
-

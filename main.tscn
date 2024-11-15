@@ -59,6 +59,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_pjwce")
 
 [node name="JustNoise" type="Sprite2D" parent="Control"]
+visible = false
 material = SubResource("ShaderMaterial_yit1h")
 scale = Vector2(4, 4)
 texture = ExtResource("2_pjwce")
